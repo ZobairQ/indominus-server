@@ -6,7 +6,7 @@ import {
   queryUserById,
   queryUserByUsername,
   queryCityByName,
-  QueryAllCities,
+  queryAllCities,
 } from "./resolvers/queries";
 import {
   mutationCreateNewUser,
@@ -20,7 +20,7 @@ import {
 
 export const resolvers = {
   Query: {
-    cities: QueryAllCities,
+    cities: queryAllCities,
     city: queryCityByName,
     user: queryUserByUsername,
     userById: queryUserById,
