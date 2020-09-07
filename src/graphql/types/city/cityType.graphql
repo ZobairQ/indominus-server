@@ -1,0 +1,23 @@
+type City {
+  id: ID!
+  user: User
+  name: String
+  gold: Int
+  militaryPower: Int
+  population: Int
+}
+
+type Query {
+  cityById(id: ID!): City!
+  cities: [City]
+  city(name: String!): City!
+}
+
+type Mutation {
+  changeMilitaryPower(id: ID!, value: Int!): City!
+  changeGold(id: ID!, value: Int!): City!
+  changePopluation(id: ID!, value: Int!): City!
+  incrementGoldMineLevel(id: ID!): City!
+  incrementHouseLevel(id: ID!): City!
+  incrementMilitaryBaseLevel(id: ID!): City!
+}

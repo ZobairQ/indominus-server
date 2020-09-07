@@ -1,47 +1,19 @@
-import { User } from "../models/User";
-import { ApolloError } from "apollo-server";
-import { City } from "../models/City";
+import { User } from "../../../models/User";
+import { City } from "../../../models/City";
+
+// City queries resolved
 
 /**
- * @description {Mutation} Creates a new user if the username does not exist.
- * @param  {String} name -  name of the player
- * @param  {String} username - username of the player
- * @param  {String} password - password of the player
- * @param  {String} email - email of the player
- * @param  {String} cityName - name of the players initial city
+ * @description {Query} Finds city by the given id
+ * @param {*} id - The id city to be queried 
+ * @returns {Model.Object}
  */
-export const mutationCreateNewUser = async (
-  _,
-  { name, username, password, email, cityName }
-) => {
-  // Check if the user exists
-  const count = await User.count({ username });
-  if (count > 0) {
-    console.log("The User already exists.");
-    throw new ApolloError("The user alreayd exits", "500");
-  }
+export const queryCityById = async (_, { id }) => await City.findById(id).populate("user");
+export const queryAllCities = () => City.find().populate("user").exec();
+export const queryAllUsers = () => User.find().popluate("city").exec();
 
-  //We will reach here if the user does not exist.
 
-  const user = new User({ name, username, password, email, cityName });
-  const city = new City({
-    user: user,
-    name: cityName,
-    gold: 1000,
-    militaryPower: 0,
-    population: 100,
-    goldMineLevel: 1,
-    houseLevel: 1,
-    militaryBaseLevel: 0,
-  });
-
-  console.log("User ID:", user._id);
-  console.log("City ID", city._Id);
-  await city.save();
-  user.city.push(city);
-  const res = await user.save();
-  return res;
-};
+// City mutations resolved
 
 /**
  * @description {Mutation} Changes the military power of a city to value param
