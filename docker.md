@@ -11,6 +11,7 @@ docker run -d -p 27017:27017 -v ~/mongodb-docker:/data/db --name indominus-mongo
 ```
 
 ## If you already have mongo image
+
 If you think you already have a mongo image then go ahead and open your terminal/powershell and type
 
 ```shell
