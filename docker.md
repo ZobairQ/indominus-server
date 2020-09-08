@@ -23,3 +23,26 @@ you will ses a list of images and then see if you can find mongo in the list. If
 ```shell
 docker rmi mongo
 ```
+
+## If you see this message 
+
+```powershell
+
+Starting indominus-server_mongo_1 ... error
+
+ERROR: for indominus-server_mongo_1  Cannot start service mongo: Mounts denied: 
+The path /data/mongodb
+is not shared from OS X and is not known to Docker.
+You can configure shared paths from Docker -> Preferences... -> File Sharing.
+See https://docs.docker.com/docker-for-mac/osxfs/#namespaces for more info.
+.
+
+ERROR: for mongo  Cannot start service mongo: Mounts denied: 
+The path /data/mongodb
+is not shared from OS X and is not known to Docker.
+You can configure shared paths from Docker -> Preferences... -> File Sharing.
+See https://docs.docker.com/docker-for-mac/osxfs/#namespaces for more info.
+.
+ERROR: Encountered errors while bringing up the project.
+
+```
