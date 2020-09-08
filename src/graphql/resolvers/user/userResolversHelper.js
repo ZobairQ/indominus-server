@@ -1,14 +1,36 @@
 import {User} from '../../../models/User';
+import {City} from '../../../models/City'
 import { ApolloError } from "apollo-server";
 
 // Queries 
 
+/**
+ * @description {Query} Find user by the given id param
+ * @param {mongoose.Schema.Types.ObjectId} id 
+ */
 export const queryUserById = async (_, { id }) => await User.findById(id).populate("city");
+
+/**
+ * @description {Query} Find user by the username given as param
+ * @param {mongoose.Schema.Types.ObjectId} id 
+ */
 export const queryUserByUsername = async (_, { username }) => await User.findOne({ username }).populate("city").exec();
+
+/**
+ * @description {Query} Finds all the users in the database and populates the cities for them.
+ */
 export const queryAllUsers = () => User.find().popluate("city").exec();
 
 // Mutations
 
+/**
+ * @description {Mutation} creates a new user with given parameters and a default city.
+ * @param {String} name -  name of the player
+ * @param {String} username -  username of the player 
+ * @param {String} password -  password of the player 
+ * @param {String} email - email of the player 
+ * @param {String} cityName -  name of the first city given to the player
+ */
 export const mutationCreateNewUser = async (
     _,
     { name, username, password, email, cityName }

@@ -5,6 +5,9 @@ type City {
   gold: Int
   militaryPower: Int
   population: Int
+  goldMineLevel: Int
+  houseLevel: Int
+  militaryBaseLevel: Int
 }
 
 type Query {

@@ -1,9 +1,9 @@
 import { ApolloServer } from "apollo-server-express";
 import express from "express";
 import mongoose from "mongoose";
-import {typeDefs} from './graphql/types'
+import { typeDefs } from "./graphql/types";
 import { resolvers } from "./graphql/resolvers";
-import {context} from './utils/context';
+import { context } from "./utils/context";
 
 const startServer = async () => {
   const app = express();
@@ -11,9 +11,9 @@ const startServer = async () => {
   const server = new ApolloServer({
     typeDefs,
     resolvers,
-    context
+    context,
   });
-  
+
   server.applyMiddleware({ app });
 
   await mongoose.connect("mongodb://localhost:27017/indominus", {

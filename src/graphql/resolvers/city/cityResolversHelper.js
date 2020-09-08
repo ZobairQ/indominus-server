@@ -9,8 +9,13 @@ import { City } from "../../../models/City";
  * @returns {Model.Object}
  */
 export const queryCityById = async (_, { id }) => await City.findById(id).populate("user");
+
+/**
+ * @description {Query} Finds all the cities in the database and returns them with users populated.
+ * @returns {Model.Object}
+ */
 export const queryAllCities = () => City.find().populate("user").exec();
-export const queryAllUsers = () => User.find().popluate("city").exec();
+
 
 
 // City mutations resolved
