@@ -11,7 +11,6 @@ const startServer = async () => {
   const server = new ApolloServer({
     typeDefs,
     resolvers,
-    context,
   });
 
   server.applyMiddleware({ app });
