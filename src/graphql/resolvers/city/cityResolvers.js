@@ -7,6 +7,7 @@ import {
   mutationIncrementGoldMineLevel,
   mutationIncrementHouseLevel,
   mutationIncrementMilitaryBaseLevel,
+  mutationUpgradeBuilding
 } from "./cityResolversHelper";
 
 export const resolvers = {
@@ -18,6 +19,7 @@ export const resolvers = {
     changeMilitaryPower: mutationChangeMilitaryPower,
     changeGold: mutationChangeGold,
     changePopluation: mutationChangePopluation,
+    upgradeCityBuilding: mutationUpgradeBuilding,
     incrementGoldMineLevel: mutationIncrementGoldMineLevel,
     incrementHouseLevel: mutationIncrementHouseLevel,
     incrementMilitaryBaseLevel: mutationIncrementMilitaryBaseLevel,

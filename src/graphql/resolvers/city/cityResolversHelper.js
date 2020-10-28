@@ -5,18 +5,17 @@ import { City } from "../../../models/City";
 
 /**
  * @description {Query} Finds city by the given id
- * @param {*} id - The id city to be queried 
+ * @param {*} id - The id city to be queried
  * @returns {Model.Object}
  */
-export const queryCityById = async (_, { id }) => await City.findById(id).populate("user");
+export const queryCityById = async (_, { id }) =>
+  await City.findById(id).populate("user");
 
 /**
  * @description {Query} Finds all the cities in the database and returns them with users populated.
  * @returns {Model.Object}
  */
 export const queryAllCities = () => City.find().populate("user").exec();
-
-
 
 // City mutations resolved
 
@@ -71,4 +70,18 @@ export const mutationIncrementHouseLevel = async (_, { id }) => {
  */
 export const mutationIncrementMilitaryBaseLevel = async (_, { id }) => {
   return await City.findByIdAndUpdate(id, { $inc: { militaryBaseLevel: 1 } });
+};
+
+export const mutationUpgradeBuilding = async (_, { cityId, type }) => {
+  if (type === "GoldMine") {
+    return mutationIncrementGoldMineLevel(cityId);
+  }
+  if (type == "House") {
+    return mutationIncrementHouseLevel(cityId);
+  }
+  if (type == "MilitaryBase") {
+    return mutationIncrementMilitaryBaseLevel(cityId);
+  }
+
+  return null;
 };
