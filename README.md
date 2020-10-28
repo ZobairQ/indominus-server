@@ -1,3 +1,5 @@
+[![time tracker](https://wakatime.com/badge/github/ZobairQ/indominus-server.svg)](https://wakatime.com/badge/github/ZobairQ/indominus-server)
+
 # Indominus
 
 Indominus is strategy browser game written in React/Redux/GraphQL.
@@ -35,11 +37,11 @@ You need the ID that will be prompted for authorization. This user is just a dum
 You need to copy the id that is prompted
 Then you need to add a header with the following
 
-```http
-{
-  "authorization":"id" // could be something like 5f5812d711e38b00353bf1d7
-}
-```
+
+    {
+      "authorization":"id" // could be something like 5f5812d711e38b00353bf1d7
+    }
+
 
 #### Query anything
 
