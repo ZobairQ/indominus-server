@@ -85,3 +85,25 @@ export const mutationUpgradeBuilding = async (_, { cityId, type }) => {
 
   return null;
 };
+
+export const mutationAddCity = async (_, { userID, cityName }) => {
+  const user = await User.findById(userID);
+
+  const city = new City({
+    user: user,
+    name: cityName,
+    gold: 1000,
+    militaryPower: 0,
+    population: 100,
+    goldMineLevel: 1,
+    houseLevel: 1,
+    militaryBaseLevel: 0,
+  });
+  console.log("THE ID FOR CITY IS ", city._id);
+  console.log("THE USERNAME IS ", user.username);
+  await city.save();
+  console.log("IS THIS EXECUTED?");
+  await user.city.push(city);
+  await user.save();
+  return city;
+};

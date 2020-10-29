@@ -24,4 +24,5 @@ type Mutation {
   incrementHouseLevel(id: ID!): City!
   incrementMilitaryBaseLevel(id: ID!): City!
   upgradeCityBuilding(cityId: ID!, type: String!): City!
+  addCity(userID: ID!, cityName:String!):City!
 }
