@@ -79,7 +79,7 @@ query {
 
 ## Game Description
 
-The game is a strategy game where each other has a number of cities. Each city has gold, population and military power.
+The game is a strategy game where each player has a number of cities. Each city has gold, population and military power.
 The military power increases as you spend gold buying weapons.
 The population is needed to gather more gold.
 
