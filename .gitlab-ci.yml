@@ -12,4 +12,3 @@ first-job:
   script:
     - pwd
     - ls -la
-    
