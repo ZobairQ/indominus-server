@@ -10,5 +10,5 @@ first-job:
   tags:
     - "alisina-docker-executor"
   script:
-    - pwd
+    - npm install
     - ls -la
