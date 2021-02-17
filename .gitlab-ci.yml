@@ -1,0 +1,15 @@
+---
+image: "node:14.15.5"
+
+stages:
+  - "build"
+  - "test"
+
+first-job:
+  stage: build
+  tags:
+    - "alisina-docker-executor"
+  script:
+    - pwd
+    - ls -la
+    
